@@ -16,7 +16,10 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "helmet": "^5.0.2",
-    "nodemon": "^2.0.15"
+    "knex": "^1.0.2",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "pgtools": "^0.3.2"
   },
   "devDependencies": {
     "eslint": "^8.8.0"
