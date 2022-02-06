@@ -9,7 +9,8 @@ const Header = (props) => {
     return (
         <StyledHeader>
             <nav>
-                <Link to='#'>Home</Link>
+                <Link to='/'>Home</Link>
+                <Link to='/reaction-speed'>Reaction Speed</Link>
             </nav>
         </StyledHeader>
     );
