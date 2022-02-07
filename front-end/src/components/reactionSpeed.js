@@ -9,6 +9,9 @@ const ReactionSpeed = (props) => {
   const [totalTime, setTotalTime] = useState(0);
 
   const handleStart = () => {
+    if (totalTime !== 0) {
+      setTotalTime(0);
+    }
     setGameStarted(true);
   };
   return (
@@ -26,9 +29,9 @@ const ReactionSpeed = (props) => {
         <h3>Leaderboard</h3>
       </div>
       <div id="reaction-speed-game">
-        <button id="start-game-btn" onClick={handleStart}>
+        {!gameStarted && <button id="start-game-btn" onClick={handleStart}>
           Start Game
-        </button>
+        </button>}
         {gameStarted && (
           <ReactionSpeedGame
             gameStarted={gameStarted}
