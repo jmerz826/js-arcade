@@ -5,7 +5,8 @@ import ReactionSpeedGame from "../games/reactionSpeed";
 const StyledDiv = styled.div``;
 
 const ReactionSpeed = (props) => {
-    const [gameStarted, setGameStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [totalTime, setTotalTime] = useState(0);
 
   const handleStart = () => {
     setGameStarted(true);
@@ -28,7 +29,14 @@ const ReactionSpeed = (props) => {
         <button id="start-game-btn" onClick={handleStart}>
           Start Game
         </button>
-              {gameStarted && <ReactionSpeedGame setGameStarted={setGameStarted}/>}
+        {gameStarted && (
+          <ReactionSpeedGame
+            gameStarted={gameStarted}
+            setGameStarted={setGameStarted}
+            totalTime={totalTime}
+            setTotalTime={setTotalTime}
+          />
+        )}
       </div>
     </StyledDiv>
   );

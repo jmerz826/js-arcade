@@ -4,19 +4,31 @@ import styled from "styled-components";
 const StyledDiv = styled.div``;
 
 const ReactionSpeedGame = (props) => {
+    const { totalTime, setTotalTime } = props;
+
+    // slices of state
     const [shown, setShown] = useState(false);
     const [delay, setDelay] = useState(pickRandomDelay());
     const [roundsFinished, setRoundsFinished] = useState(0);
+    const [countDelayTime, setCountDelayTime] = useState(delay);
 
     useEffect(() => {
+        setTotalTime(Date.now())
         setDelay(pickRandomDelay());
+        startDelay()
     }, [])
     
-    useEffect(() => {
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setShown(true)
+    //     }, delay)
+    // })
+
+    function startDelay() {
         setTimeout(() => {
             setShown(true)
         }, delay)
-    })
+    }
 
     function pickRandomDelay() {
         return 1000 * (Math.random() * 4 + 1)
@@ -25,10 +37,13 @@ const ReactionSpeedGame = (props) => {
     function handleClick() {
         setRoundsFinished(roundsFinished + 1)
         setShown(false)
-        if (roundsFinished === 4) {
-            props.setGameStarted(false)
-        }
+        setCountDelayTime(countDelayTime + delay)
         setDelay(pickRandomDelay())
+        if (roundsFinished === 4) {
+            setTotalTime(Date.now() - totalTime - countDelayTime)
+            return props.setGameStarted(false)
+        }
+        startDelay()
     }
 
 
