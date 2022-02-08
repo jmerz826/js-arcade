@@ -5,7 +5,7 @@
  exports.up = async function (knex) {
     await knex.schema.createTable("reaction-speed", (table) => {
       table.increments()
-      table.string("user", 128).notNullable()
+      table.string("name", 128).notNullable()
       table.integer("score").notNullable()
     })
   }
