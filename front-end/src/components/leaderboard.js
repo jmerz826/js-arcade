@@ -10,7 +10,7 @@ const Leaderboard = (props) => {
             <ul>
                 {highScores.map(entry => {
                     return (
-                        <li>Player: {entry.name}: {entry.score} </li>
+                        <li key={entry.score}>Player: {entry.name}: {entry.score} </li>
                     )
                 })}
             </ul>

@@ -16,7 +16,7 @@ const ReactionSpeedGame = (props) => {
     setTotalTime(Date.now());
     setDelay(pickRandomDelay());
     startDelay();
-  }, []);
+  }, []); //eslint-disable-line
 
   function startDelay() {
     setTimeout(() => {
@@ -25,7 +25,7 @@ const ReactionSpeedGame = (props) => {
   }
 
   function pickRandomDelay() {
-    return 1000 * (Math.random() * 4 + 1);
+    return 1000 * (Math.random() * 3 + 1);
   }
 
   function handleClick() {
@@ -35,6 +35,7 @@ const ReactionSpeedGame = (props) => {
     setDelay(pickRandomDelay());
     if (roundsFinished === 4) {
       setTotalTime(Date.now() - totalTime - countDelayTime);
+      props.processScore();
       return props.setGameStarted(false);
     }
     startDelay();
