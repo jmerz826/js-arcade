@@ -11,8 +11,8 @@ if (process.env.DATABASE_URL) {
 
 const sharedConfig = {
   client: 'pg',
-  migrations: { direcory: './api/data/migrations' },
-  seeds: {directory: './api/seeds'}
+  migrations: { directory: './api/data/migrations' },
+  seeds: {directory: './api/data/seeds'}
 }
 
 module.exports = {
