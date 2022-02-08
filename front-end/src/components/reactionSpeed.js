@@ -18,6 +18,8 @@ const ReactionSpeed = (props) => {
   const [totalTime, setTotalTime] = useState(0);
   const [highScores, setHighScores] = useState(dummyScores);
   const [newHighScore, setNewHighScore] = useState(false)
+  const [inputName, setInputName] = useState('')
+  const [score, setScore] = useState(0)
 
   // populate leaderboard 
   useEffect(() => {
@@ -30,11 +32,11 @@ const ReactionSpeed = (props) => {
   useEffect(() => {
     const [lowest] = highScores.slice(-1)
     if (totalTime > 0 && totalTime < lowest.score) {
-      setHighScores([...highScores, { name: 'John', score: totalTime }])
+      setScore(totalTime)
       setTotalTime(0)
-      setNewHighScore(!newHighScore)
+      setNewHighScore(true)
     }
-  },[highScores, totalTime]) //eslint-disable-line
+  },[totalTime]) //eslint-disable-line
 
   const handleStart = () => {
     if (totalTime !== 0) {
@@ -43,8 +45,16 @@ const ReactionSpeed = (props) => {
     setGameStarted(true);
   };
 
-  const handleSubmitNewScore = () => {
+  const handleSubmitNewScore = (e) => {
+    e.preventDefault()
+    setHighScores([...highScores, { name: inputName, score }])
+    setInputName('')
+    setScore(0)
+    setNewHighScore(false)
+  }
 
+  const handleChange = (e) => {
+    setInputName(e.target.value)
   }
 
   return (
@@ -60,7 +70,17 @@ const ReactionSpeed = (props) => {
       </p>
       <div className="leaderboard">
         <h3>Leaderboard</h3>
-        <Leaderboard highScores={highScores}/>
+        <Leaderboard highScores={highScores} />
+        {newHighScore &&
+          <form>
+            <h4>NEW HIGH SCORE</h4>
+            <input
+              type='text'
+              onChange={handleChange}
+              value={inputName}
+            />
+            <button onClick={handleSubmitNewScore}>Enter</button>
+        </form> }
       </div>
       <div id="reaction-speed-game">
         {!gameStarted && <button id="start-game-btn" onClick={handleStart}>
@@ -72,7 +92,6 @@ const ReactionSpeed = (props) => {
             setGameStarted={setGameStarted}
             totalTime={totalTime}
             setTotalTime={setTotalTime}
-            // processScore={processScore}
           />
         )}
       </div>
