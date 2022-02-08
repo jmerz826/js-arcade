@@ -19,22 +19,22 @@ const ReactionSpeed = (props) => {
   const [highScores, setHighScores] = useState(dummyScores);
   const [newHighScore, setNewHighScore] = useState(false)
 
-  // populate leaderboard on mount
+  // populate leaderboard 
   useEffect(() => {
     // replace with API call
     const top5 = highScores.sort((a, b) => a.score - b.score).slice(0, 5)
     setHighScores(top5);
-  }, []) //eslint-disable-line
+    
+  }, [newHighScore]) //eslint-disable-line
 
   useEffect(() => {
     const [lowest] = highScores.slice(-1)
     if (totalTime > 0 && totalTime < lowest.score) {
       setHighScores([...highScores, { name: 'John', score: totalTime }])
       setTotalTime(0)
-      // console.log(`score: ${totalTime}`)
-      // setNewHighScore(true)
+      setNewHighScore(!newHighScore)
     }
-  })
+  },[highScores, totalTime]) //eslint-disable-line
 
   const handleStart = () => {
     if (totalTime !== 0) {
