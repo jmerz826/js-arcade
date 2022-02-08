@@ -16,14 +16,25 @@ const dummyScores = [
 const ReactionSpeed = (props) => {
   const [gameStarted, setGameStarted] = useState(false);
   const [totalTime, setTotalTime] = useState(0);
-  const [highScores, setHighScores] = useState([]);
+  const [highScores, setHighScores] = useState(dummyScores);
+  const [newHighScore, setNewHighScore] = useState(false)
 
-  // populate 
+  // populate leaderboard on mount
   useEffect(() => {
     // replace with API call
-    const top5 = dummyScores.sort((a, b) => a.score - b.score).slice(0,5)
+    const top5 = highScores.sort((a, b) => a.score - b.score).slice(0, 5)
     setHighScores(top5);
-  }, [])
+  }, []) //eslint-disable-line
+
+  useEffect(() => {
+    const [lowest] = highScores.slice(-1)
+    if (totalTime > 0 && totalTime < lowest.score) {
+      setHighScores([...highScores, { name: 'John', score: totalTime }])
+      setTotalTime(0)
+      // console.log(`score: ${totalTime}`)
+      // setNewHighScore(true)
+    }
+  })
 
   const handleStart = () => {
     if (totalTime !== 0) {
@@ -32,9 +43,10 @@ const ReactionSpeed = (props) => {
     setGameStarted(true);
   };
 
-  const processScore = () => {
-    console.log(highScores);
+  const handleSubmitNewScore = () => {
+
   }
+
   return (
     <StyledDiv>
       <h2>Reaction Speed Game</h2>
@@ -60,7 +72,7 @@ const ReactionSpeed = (props) => {
             setGameStarted={setGameStarted}
             totalTime={totalTime}
             setTotalTime={setTotalTime}
-            processScore={processScore}
+            // processScore={processScore}
           />
         )}
       </div>

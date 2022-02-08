@@ -34,8 +34,7 @@ const ReactionSpeedGame = (props) => {
     setCountDelayTime(countDelayTime + delay);
     setDelay(pickRandomDelay());
     if (roundsFinished === 4) {
-      setTotalTime(Date.now() - totalTime - countDelayTime);
-      props.processScore();
+      setTotalTime(Date.now() - totalTime - countDelayTime) 
       return props.setGameStarted(false);
     }
     startDelay();
