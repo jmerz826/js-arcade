@@ -4,6 +4,9 @@ const StyledHomePage = styled.div`
   img {
     width: 40%;
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 const HomePage = (props) => {
@@ -23,6 +26,13 @@ const HomePage = (props) => {
         All games have a leader board that is running on a backend server that I
         created for this project.
       </p>
+      <a
+        href="https://github.com/jmerz826/js-arcade"
+        target="_blank"
+        rel="noreferrer"
+      >
+        This project's github 🔗
+      </a>
       <h3>Creator</h3>
       <p>This page was created solely by John Merz</p>
       <ul>
@@ -32,7 +42,7 @@ const HomePage = (props) => {
             target="_blank"
             rel="noreferrer"
           >
-            John's Linkedin
+            John's Linkedin 🔗
           </a>
         </li>
         <li>
@@ -41,7 +51,7 @@ const HomePage = (props) => {
             target="_blank"
             rel="noreferrer"
           >
-            John's GitHub
+            John's GitHub 🔗
           </a>
         </li>
       </ul>
