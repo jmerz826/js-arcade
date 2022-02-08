@@ -44,6 +44,7 @@ const ReactionSpeedGame = (props) => {
     <StyledDiv>
       <h4>The game has begun!</h4>
       {shown && <button onClick={handleClick}>Click here!</button>}
+      <h5>be quick! 🐆</h5>
     </StyledDiv>
   );
 };
