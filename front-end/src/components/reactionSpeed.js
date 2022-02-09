@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactionSpeedGame from "../games/reactionSpeed";
 import Leaderboard from "./leaderboard";
+import axios from 'axios'
 
 const StyledDiv = styled.div`
   display: flex;
