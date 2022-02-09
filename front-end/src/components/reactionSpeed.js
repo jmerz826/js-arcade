@@ -33,8 +33,16 @@ const ReactionSpeed = (props) => {
   // populate leaderboard
   useEffect(() => {
     // replace with API call
-    const top5 = highScores.sort((a, b) => a.score - b.score).slice(0, 5);
-    setHighScores(top5);
+    axios.get('https://js-arcade.herokuapp.com/api/reaction-speed')
+      .then(res => {
+        const top5 = res.data.sort((a, b) => a.score - b.score).slice(0, 5);
+        setHighScores(top5)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    // const top5 = highScores.sort((a, b) => a.score - b.score).slice(0, 5);
+    // setHighScores(top5);
   }, [newHighScore]); //eslint-disable-line
 
   useEffect(() => {
