@@ -9,7 +9,11 @@
     "server": "nodemon index.js",
     "migrate:dev": "knex migrate:latest",
     "rollback:dev": "knex migrate:rollback",
-    "seed:dev": "knex seed:run"
+    "seed:dev": "knex seed:run",
+    "migrate:prod": "heroku run knex migrate:latest -a js-arcade",
+    "rollback:prod": "heroku run knex migrate:rollback -a js-arcade",
+    "seed:prod": "heroku run knex seed:run -a js-arcade",
+    "database:prod": "heroku pg:psql -a js-arcade"
   },
   "keywords": [],
   "author": "",
