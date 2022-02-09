@@ -8,7 +8,7 @@ function tokenBuilder(user){
         score: user.score
     }
     const options = {
-        expiresIn: '15'
+        expiresIn: '1d'
     }
     const token = jwt.sign(payload, JWT_SECRET, options)
     return token
