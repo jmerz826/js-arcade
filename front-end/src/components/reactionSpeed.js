@@ -41,19 +41,26 @@ const ReactionSpeed = (props) => {
       .catch(err => {
         console.error(err)
       })
-    // const top5 = highScores.sort((a, b) => a.score - b.score).slice(0, 5);
-    // setHighScores(top5);
   }, [newHighScore]); //eslint-disable-line
 
+  // upon game completion, checks if new score qualifies for top 5
   useEffect(() => {
     const [lowest] = highScores.slice(-1);
+    // prevents trigger upon mount
     if (totalTime > 0 && totalTime < lowest.score) {
+
+      // stores users score in 'score' slice of state
       setScore(totalTime);
+
+      // resets timer back to 0.. allows for game to be played again w/o refresh
       setTotalTime(0);
+
+      //trigger leaderboard re-population
       setNewHighScore(true);
     }
   }, [totalTime]); //eslint-disable-line
 
+  // starts game
   const handleStart = () => {
     if (totalTime !== 0) {
       setTotalTime(0);
@@ -61,7 +68,7 @@ const ReactionSpeed = (props) => {
     setGameStarted(true);
   };
 
-  const handleSubmitNewScore = (e) => {
+  const handleSubmitNewScore = async (e) => {
     e.preventDefault();
     setHighScores([...highScores, { name: inputName, score }]);
     setInputName("");
