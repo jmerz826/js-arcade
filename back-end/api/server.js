@@ -1,17 +1,25 @@
-const express = require('express')
-const cors = require('cors')
-const helmet = require('helmet')
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const reactionSpeedRouter = require("./reaction-speed/reaction-speed-router");
 
-const server = express()
-server.use(express.json())
+const server = express();
+server.use(express.json());
 
-server.use(cors())
-server.use(helmet())
+server.use(cors());
+server.use(helmet());
 
+server.use("/api/reaction-speed", reactionSpeedRouter);
 
 // error catcher
-server.use('/', (err, req, res, next) => { // eslint-disable-line
-    res.status(err.status || 500).json({message: `${req.method} could not be performed, ` + err.message, stack: err.stack})
-})
+server.use("/", (err, req, res, next) => {
+  // eslint-disable-line
+  res
+    .status(err.status || 500)
+    .json({
+      message: `${req.method} could not be performed, ` + err.message,
+      stack: err.stack,
+    });
+});
 
-module.exports = server
+module.exports = server;
