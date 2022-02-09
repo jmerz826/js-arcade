@@ -11,9 +11,6 @@
     "rollback:dev": "knex migrate:rollback",
     "seed:dev": "knex seed:run"
   },
-  "engines": {
-    "node": "16.13.2"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
