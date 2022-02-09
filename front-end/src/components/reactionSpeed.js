@@ -49,8 +49,8 @@ const ReactionSpeed = (props) => {
     // prevents trigger upon mount
     if (totalTime > 0 && totalTime < lowest.score) {
 
-      // stores users score in 'score' slice of state
-      setScore(totalTime);
+      // stores users score as integer in 'score' slice of state
+      setScore(parseInt(totalTime));
 
       // resets timer back to 0.. allows for game to be played again w/o refresh
       setTotalTime(0);
@@ -68,12 +68,22 @@ const ReactionSpeed = (props) => {
     setGameStarted(true);
   };
 
-  const handleSubmitNewScore = async (e) => {
+  const handleSubmitNewScore = (e) => {
     e.preventDefault();
-    setHighScores([...highScores, { name: inputName, score }]);
-    setInputName("");
-    setScore(0);
-    setNewHighScore(false);
+    if (inputName === "" || inputName.length > 128)
+      return alert("enter your name!");
+    // setHighScores([...highScores, { name: inputName, score }]);
+    axios
+      .post("https://js-arcade.herokuapp.com/api/reaction-speed", {
+        name: inputName,
+        score,
+      })
+      .then(() => {
+        setInputName("");
+        setScore(0);
+        setNewHighScore(false);
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleChange = (e) => {
