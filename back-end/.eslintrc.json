@@ -8,8 +8,5 @@
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": "latest"
-    },
-    "rules": {
-        "semi": ["error", "always"]
     }
 }

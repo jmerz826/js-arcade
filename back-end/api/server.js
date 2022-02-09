@@ -12,8 +12,7 @@ server.use(helmet());
 server.use("/api/reaction-speed", reactionSpeedRouter);
 
 // error catcher
-server.use("/", (err, req, res, next) => {
-  // eslint-disable-line
+server.use("/", (err, req, res, next) => {// eslint-disable-line
   res
     .status(err.status || 500)
     .json({
