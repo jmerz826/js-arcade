@@ -9,5 +9,13 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err));
 });
 
+router.post('/', (req, res, next) => {
+    Reaction.add(req.body)
+        .then(newScore => {
+            res.status(201).json(newScore)
+        })
+        .catch(err => next(err))
+})
+
 
 module.exports = router;

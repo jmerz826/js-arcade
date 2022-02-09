@@ -4,5 +4,13 @@ function getAll() {
     return db('reaction-speed');
 }
 
+function getById(id) {
+    return db('reaction-speed').where({id})
+}
 
-module.exports = {getAll};
+async function add(newScore) {
+    return db('reaction-speed').insert(newScore, ['*'])
+}
+
+
+module.exports = {getAll, add};
