@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactionSpeedGame from "../games/reactionSpeed";
 import Leaderboard from "./leaderboard";
 import axios from 'axios'
-import axiosWithAuth from '../auth/axiosWithAuth'
+import {axiosWithAuth, newScoreAxios} from '../auth/axiosWithAuth'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -58,9 +58,6 @@ const ReactionSpeed = (props) => {
         localStorage.removeItem('token');
         await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', { score })
           .then(resp => {
-            if (localStorage.getItem('score-token')) {
-              localStorage.removeItem('score-token')
-            }
             localStorage.setItem('score-token', resp.data.token)
           })
           .catch(err => console.error(err))
@@ -89,7 +86,7 @@ const ReactionSpeed = (props) => {
     if (inputName === "" || inputName.length > 128)
       return alert("enter your name!");
     // setHighScores([...highScores, { name: inputName, score }]);
-    axiosWithAuth()
+    newScoreAxios()
       .post("https://js-arcade.herokuapp.com/api/reaction-speed", {
         name: inputName,
         score,
