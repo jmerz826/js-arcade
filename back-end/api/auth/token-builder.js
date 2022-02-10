@@ -14,8 +14,6 @@ function adminTokenBuilder(user){
 
 function highScoreTokenBuilder(user) {
     const payload = {
-        subject: user.id,
-        name: user.name,
         score: user.score
     }
     const options = {

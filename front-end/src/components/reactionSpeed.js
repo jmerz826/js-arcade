@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ReactionSpeedGame from "../games/reactionSpeed";
 import Leaderboard from "./leaderboard";
 import axios from 'axios'
+import axiosWithAuth from '../auth/axiosWithAuth'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -52,6 +53,11 @@ const ReactionSpeed = (props) => {
       // stores users score as integer in 'score' slice of state
       setScore(parseInt(totalTime));
 
+      // issue token, granting user access to protected route to post score
+      async function issueToken(){
+        await axios.post('https://js-arcade.herokuapp.com/api/', {score})
+      }
+
       // resets timer back to 0.. allows for game to be played again w/o refresh
       setTotalTime(0);
 
@@ -73,7 +79,7 @@ const ReactionSpeed = (props) => {
     if (inputName === "" || inputName.length > 128)
       return alert("enter your name!");
     // setHighScores([...highScores, { name: inputName, score }]);
-    axios
+    axiosWithAuth()
       .post("https://js-arcade.herokuapp.com/api/reaction-speed", {
         name: inputName,
         score,
