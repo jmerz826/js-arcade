@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Reaction = require('./reaction-speed-model');
 const {restricted} = require('../auth/restricted')
 
-router.get('/', restricted, (req, res, next) => {
+router.get('/', (req, res, next) => {
     Reaction.getAll()
         .then(scores => {
             res.status(200).json(scores);
