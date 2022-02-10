@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactionSpeedGame from "../games/reactionSpeed";
 import Leaderboard from "./leaderboard";
 import axios from 'axios'
-import {axiosWithAuth, newScoreAxios} from '../auth/axiosWithAuth'
+import {newScoreAxios} from '../auth/axiosWithAuth'
 
 const StyledDiv = styled.div`
   display: flex;
