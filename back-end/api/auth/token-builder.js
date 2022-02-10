@@ -17,7 +17,7 @@ function highScoreTokenBuilder(user) {
         score: user.score
     }
     const options = {
-        expiresIn: '20'
+        expiresIn: '20s'
     }
     const token = jwt.sign(payload, JWT_SECRET, options)
     return token;

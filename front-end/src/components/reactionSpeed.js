@@ -56,7 +56,11 @@ const ReactionSpeed = (props) => {
       // issue token, granting user access to protected route to post score
       async function issueToken() {
         localStorage.removeItem('token');
-        await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', {score})
+        await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', { score })
+          .then(resp => {
+            localStorage.setItem('score-token', resp.data.token)
+          })
+          .catch(err => console.error(err))
       }
       
       issueToken()
