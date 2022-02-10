@@ -3,9 +3,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'top secret phrase here'
 
 function adminTokenBuilder(user){
     const payload = {
-        subject: user.id,
-        name: user.name,
-        score: user.score
+        username: user.username
     }
     const options = {
         expiresIn: '1d'
@@ -14,4 +12,17 @@ function adminTokenBuilder(user){
     return token
 }
 
-module.exports = {adminTokenBuilder}
+function highScoreTokenBuilder(user) {
+    const payload = {
+        subject: user.id,
+        name: user.name,
+        score: user.score
+    }
+    const options = {
+        expiresIn: '20'
+    }
+    const token = jwt.sign(payload, JWT_SECRET, options)
+    return token;
+}
+
+module.exports = {adminTokenBuilder, highScoreTokenBuilder}
