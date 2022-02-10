@@ -24,6 +24,7 @@ const dummyScores = [
 ];
 
 const ReactionSpeed = (props) => {
+  // slices of state
   const [gameStarted, setGameStarted] = useState(false);
   const [totalTime, setTotalTime] = useState(0);
   const [highScores, setHighScores] = useState(dummyScores);

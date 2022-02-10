@@ -11,6 +11,7 @@ const Header = (props) => {
             <nav>
                 <Link to='/'>Home</Link>
                 <Link to='/reaction-speed'>Reaction Speed</Link>
+                <Link to='/prime-numbers'>Prime Numbers</Link>
             </nav>
         </StyledHeader>
     );
