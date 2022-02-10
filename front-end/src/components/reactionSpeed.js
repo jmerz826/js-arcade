@@ -58,8 +58,10 @@ const ReactionSpeed = (props) => {
         localStorage.removeItem('token');
         await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', {score})
       }
-      issueToken()
-
+      if (score !== 0) {
+        issueToken()
+      }
+        
       // resets timer back to 0.. allows for game to be played again w/o refresh
       setTotalTime(0);
 
