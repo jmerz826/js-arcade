@@ -54,9 +54,11 @@ const ReactionSpeed = (props) => {
       setScore(parseInt(totalTime));
 
       // issue token, granting user access to protected route to post score
-      async function issueToken(){
-        await axios.post('https://js-arcade.herokuapp.com/api/', {score})
+      async function issueToken() {
+        localStorage.removeItem('token');
+        await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', {score})
       }
+      issueToken()
 
       // resets timer back to 0.. allows for game to be played again w/o refresh
       setTotalTime(0);
