@@ -34,7 +34,6 @@ const ReactionSpeed = (props) => {
 
   // populate leaderboard
   useEffect(() => {
-    // replace with API call
     axios.get('https://js-arcade.herokuapp.com/api/reaction-speed')
       .then(res => {
         const top5 = res.data.sort((a, b) => a.score - b.score).slice(0, 5);
@@ -86,7 +85,6 @@ const ReactionSpeed = (props) => {
     e.preventDefault();
     if (inputName === "" || inputName.length > 128)
       return alert("enter your name!");
-    // setHighScores([...highScores, { name: inputName, score }]);
     newScoreAxios()
       .post("https://js-arcade.herokuapp.com/api/reaction-speed", {
         name: inputName,
