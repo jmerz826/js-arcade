@@ -58,6 +58,9 @@ const ReactionSpeed = (props) => {
         localStorage.removeItem('token');
         await axios.post('https://js-arcade.herokuapp.com/api/auth/reaction-speed-high-score', { score })
           .then(resp => {
+            if (localStorage.getItem('score-token')) {
+              localStorage.removeItem('score-token')
+            }
             localStorage.setItem('score-token', resp.data.token)
           })
           .catch(err => console.error(err))
