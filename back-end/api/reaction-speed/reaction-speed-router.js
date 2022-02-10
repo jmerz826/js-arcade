@@ -17,5 +17,13 @@ router.post('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.delete('/:id', (req, res, next) => {
+    Reaction.remove(req.params.id)
+        .then(() => {
+            res.status(200).json({message:'user deleted'})
+        })
+        .catch(err => next(err))
+})
+
 
 module.exports = router;

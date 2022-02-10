@@ -5,14 +5,15 @@ function getAll() {
 }
 
 function getById(id) {
-    return db('reaction-speed').where({id})
+    return db('reaction-speed').where({id}).first()
 }
 
 async function add(newScore) {
     return db('reaction-speed').insert(newScore, ['*'])
 }
 
-function remove(id){
+async function remove(id) {
+    // const toBeDeleted = await getById(id)
     return db('reaction-speed').where({id}).del()
 }
 
