@@ -12,5 +12,9 @@ async function add(newScore) {
     return db('reaction-speed').insert(newScore, ['*'])
 }
 
+function remove(id){
+    return db('reaction-speed').where({id}).del()
+}
 
-module.exports = {getAll, add};
+
+module.exports = {getAll, add, remove};
