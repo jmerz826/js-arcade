@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET || 'top secret phrase here'
 
-function tokenBuilder(user){
+function adminTokenBuilder(user){
     const payload = {
         subject: user.id,
         name: user.name,
@@ -14,4 +14,4 @@ function tokenBuilder(user){
     return token
 }
 
-module.exports = {tokenBuilder}
+module.exports = {adminTokenBuilder}

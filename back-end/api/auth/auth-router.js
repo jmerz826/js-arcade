@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const { tokenBuilder } = require("./token-builder");
+const { adminTokenBuilder } = require("./token-builder");
 const db = require("../data/db-config");
 
 function getAdmin() {
@@ -11,7 +11,7 @@ router.post("/login", async (req, res, next) => {
   try {
     const admin = await getAdmin();
     if (bcrypt.compareSync(req.body.password, admin.password)) {
-      const token = tokenBuilder(req.body);
+      const token = adminTokenBuilder(req.body);
       res.status(200).json(token);
     } else {
       next({ status: 401, message: "incorrect password" });
