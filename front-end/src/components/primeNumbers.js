@@ -23,7 +23,8 @@ const PrimeNumbers = (props) => {
     const [userGuess, setUserGuess] = useState('')
     const [lastGameScore, setLastGameScore] = useState(0)
     const [showCorrectMessage, setShowCorrectMessage] = useState(false)
-    const [countdown, setCountdown] = useState(10)
+    const [countdown, setCountdown] = useState(0)
+    
 
     useEffect(() => {
         // ******* api call to set high scores from db ******* 
@@ -84,6 +85,7 @@ const PrimeNumbers = (props) => {
     
     const handleStart = () => {
         setLastGameScore(0)
+        setRoundsCompleted(0)
         setGameStarted(true)
     }
   return (
@@ -109,13 +111,15 @@ const PrimeNumbers = (props) => {
               }
               {gameStarted &&
                   <div>
-                  <h3>The game has begun!</h3>
+                      <h3>The game has begun!</h3>
+                      <h4>{countdown}</h4>
                       {<h4>range: {lowerBound} - {upperBound}</h4>}
-                      <form>
+                      <form autoComplete="off">
                           <input
                               name='guess'
                               value={userGuess}
                               onChange={handleChange}
+                              autoComplete='off'
                           />
                           <button onClick={handleSubmitGuess}>Submit guess!</button>
                       </form>
