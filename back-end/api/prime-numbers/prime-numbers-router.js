@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', restricted, (req, res, next) => {
     PrimeNumbers.add(req.body)
         .then(newEntry => {
             res.status(201).json(newEntry)
@@ -18,7 +18,7 @@ router.post('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', restricted, (req, res, next) => {
     PrimeNumbers.remove(req.params.id)
         .then(() => {
             res.status(200).json({message: 'user deleted'})

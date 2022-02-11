@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Leaderboard from "./leaderboard";
+import axios from "axios";
+import { newScoreAxios } from "../auth/axiosWithAuth";
 
 const StyledDiv = styled.div``;
 
@@ -55,7 +57,8 @@ const PrimeNumbers = (props) => {
       if (lastGameScore > 0) {
         const lowestHighScore = highScores.slice(-1)[0];
         if (lastGameScore > lowestHighScore.score) {
-          setNewHighScoreFlag(true);
+            setNewHighScoreFlag(true);
+            issueToken()
         }
       }
     }, [lastGameScore]);
@@ -85,6 +88,14 @@ const PrimeNumbers = (props) => {
         }   
     }
 
+    async function issueToken() {
+        await axios.post('https://js-arcade.herokuapp.com/api/auth/high-score', { score: lastGameScore })
+            .then(resp => {
+                localStorage.setItem('score-token', resp.data.token)
+            })
+            .catch(err => console.error(err))
+    }
+
     const handleSubmitGuess = (e) => {
         e.preventDefault()
         /* add timeout state flag checker here*/
@@ -99,10 +110,15 @@ const PrimeNumbers = (props) => {
         setUserGuess('')
     }
 
-    const handleSubmitNewHighScore = (e) => {
+    const handleSubmitNewHighScore = async (e) => {
         e.preventDefault()
         // API post
-        setNewHighScoreFlag(false)
+        await newScoreAxios().post('https://js-arcade.herokuapp.com/api/reaction-speed', { name: userName, score: lastGameScore })
+            .then(() => {
+                setUserName('')
+                setNewHighScoreFlag(false)
+            })
+            .catch(err => console.error(err))
     }
     
     const handleStart = () => {

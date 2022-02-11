@@ -21,7 +21,7 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-router.post('/reaction-speed-high-score', (req, res, next) => {
+router.post('/high-score', (req, res, next) => {
   try {
     const token = highScoreTokenBuilder(req.body)
     res.status(200).json({message: 'new high score!', token})
