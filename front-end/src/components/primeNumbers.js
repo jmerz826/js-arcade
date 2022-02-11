@@ -159,6 +159,7 @@ const PrimeNumbers = (props) => {
                   <div>
                       <h3>The game has begun!</h3>
                       <h4>{countdown}</h4>
+                      <h4>SCORE: {roundsCompleted}</h4>
                       {<h4>range: {lowerBound} - {upperBound}</h4>}
                       <form autoComplete="off">
                           <input
