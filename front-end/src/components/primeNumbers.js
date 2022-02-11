@@ -40,7 +40,7 @@ const PrimeNumbers = (props) => {
                 setBounds()
             })
             .catch(err => console.error(err))
-    }, []) //eslint-disable-line
+    }, [newHighScoreFlag]) //eslint-disable-line
 
     useEffect(() => {
         let res = 0;
