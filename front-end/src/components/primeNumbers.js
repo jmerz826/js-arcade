@@ -14,17 +14,23 @@ const dummyScores = [
 ];
 
 const PrimeNumbers = (props) => {
-  const [highScores, setHighScores] = useState(dummyScores);
+  const [highScores, setHighScores] = useState([]);
     const [gameStarted, setGameStarted] = useState(false);
     const [lowerBound, setLowerBound] = useState(0)
     const [upperBound, setUpperBound] = useState(0)
     const [roundsCompleted, setRoundsCompleted] = useState(0)
     const [correctAnswer, setCorrectAnswer] = useState(0)
+    const [userGuess, setUserGuess] = useState('')
+    const [lastGameScore, setLastGameScore] = useState(0)
+    const [showCorrectMessage, setShowCorrectMessage] = useState(false)
 
     useEffect(() => {
+        // ******* api call to set high scores from db ******* 
+        const top5 = dummyScores.sort((a,b) => a.score > b.score ? a : b).slice(0,5)
+        setHighScores(top5)
         const randomNum = Math.floor(Math.random() * 50 + 1)
         setLowerBound(randomNum)
-        setUpperBound(randomNum + 3)
+        setUpperBound(randomNum + 6)
     }, [])
 
     useEffect(() => {
@@ -32,23 +38,46 @@ const PrimeNumbers = (props) => {
         for (let i = lowerBound; i <= upperBound; i++){
             isPrime(i) && res++
         }
-
         setCorrectAnswer(res)
-    })
+    }) //eslint-disable-line
+
+    useEffect(() => {
+        if (showCorrectMessage) {
+            setTimeout(() => {
+                setShowCorrectMessage(false)
+            }, 750) 
+        }
+    }, [showCorrectMessage])
 
     function isPrime(num) {
-        if (num === 1) {
-            return false
-        }
+        if (num === 1) return false
         for (let i = 2; i < num; i++){
-            if (num % i === 0) {
-                return false
-            }
+            if (num % i === 0) return false
         }
         return true
     }
+
+    const handleChange = (e) => {
+        setUserGuess(e.target.value)
+    }
+
+    const handleSubmitGuess = (e) => {
+        e.preventDefault()
+        /* add timeout state flag checker here*/
+        if (userGuess === String(correctAnswer)) {
+            setRoundsCompleted(roundsCompleted + 1)
+            setShowCorrectMessage(true)
+        } else {
+            setLastGameScore(roundsCompleted)
+            setGameStarted(false)
+        }
+        setUserGuess('')
+    }
     
-    const handleStart = () => setGameStarted(true)
+    const handleStart = () => {
+        setLastGameScore(0)
+        setGameStarted(true)
+    }
   return (
     <StyledDiv>
       <h2>Prime Numbers Game</h2>
@@ -69,6 +98,15 @@ const PrimeNumbers = (props) => {
                   <div>
                   <h3>The game has begun!</h3>
                       {<h4>range: {lowerBound} - {upperBound}</h4>}
+                      <form>
+                          <input
+                              name='guess'
+                              value={userGuess}
+                              onChange={handleChange}
+                          />
+                          <button onClick={handleSubmitGuess}>Submit guess!</button>
+                      </form>
+                      {showCorrectMessage && <p>correct!</p>}
                       </div>
               }
           </div>
