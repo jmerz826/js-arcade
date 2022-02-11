@@ -23,14 +23,13 @@ const PrimeNumbers = (props) => {
     const [userGuess, setUserGuess] = useState('')
     const [lastGameScore, setLastGameScore] = useState(0)
     const [showCorrectMessage, setShowCorrectMessage] = useState(false)
+    const [countdown, setCountdown] = useState(10)
 
     useEffect(() => {
         // ******* api call to set high scores from db ******* 
         const top5 = dummyScores.sort((a,b) => a.score > b.score ? a : b).slice(0,5)
         setHighScores(top5)
-        const randomNum = Math.floor(Math.random() * 50 + 1)
-        setLowerBound(randomNum)
-        setUpperBound(randomNum + 6)
+        setBounds()
     }, [])
 
     useEffect(() => {
@@ -48,6 +47,14 @@ const PrimeNumbers = (props) => {
             }, 750) 
         }
     }, [showCorrectMessage])
+
+    function setBounds() {
+        const randomNumber = Math.floor(Math.random() * 50 + 1)
+        const toAdd = roundsCompleted + ((roundsCompleted > 4) ? 2 : 1)
+        setLowerBound(randomNumber)
+        setUpperBound(randomNumber + 4 + toAdd)
+        
+    }
 
     function isPrime(num) {
         if (num === 1) return false
@@ -67,6 +74,7 @@ const PrimeNumbers = (props) => {
         if (userGuess === String(correctAnswer)) {
             setRoundsCompleted(roundsCompleted + 1)
             setShowCorrectMessage(true)
+            setBounds()
         } else {
             setLastGameScore(roundsCompleted)
             setGameStarted(false)
@@ -85,7 +93,7 @@ const PrimeNumbers = (props) => {
       <p>
         The Prime Numbers Game will get progressively more challenging as the
         game goes on. Each round, you will be given an inclusive range of
-        numbers. You must enter how many prime numbers fall within that range.
+        numbers. You must enter how many prime numbers fall within that range (Example. Range: 3-5, answer: 2). You have ten seconds to submit a guess each round.
         Good luck!
       </p>
       <div className="leaderboard">
