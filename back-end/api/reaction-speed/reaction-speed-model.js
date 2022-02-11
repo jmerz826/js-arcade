@@ -8,12 +8,11 @@ function getById(id) {
     return db('reaction-speed').where({id}).first()
 }
 
-async function add(newScore) {
+function add(newScore) {
     return db('reaction-speed').insert(newScore, ['*'])
 }
 
-async function remove(id) {
-    // const toBeDeleted = await getById(id)
+function remove(id) {
     return db('reaction-speed').where({id}).del()
 }
 
