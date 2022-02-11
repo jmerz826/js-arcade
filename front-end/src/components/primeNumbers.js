@@ -32,10 +32,15 @@ const PrimeNumbers = (props) => {
 
     useEffect(() => {
         // ******* api call to set high scores from db ******* 
-        const top5 = dummyScores.sort((a,b) => a.score > b.score ? a : b).slice(0,5)
-        setHighScores(top5)
-        setBounds()
-    }, [])
+        axios.get('https://js-arcade.herokuapp.com/api/prime-numbers')
+            .then(res => {
+                console.log(res.data)
+                const top5 = res.data.slice(0, 5)
+                setHighScores(top5)
+                setBounds()
+            })
+            .catch(err => console.error(err))
+    }, []) //eslint-disable-line
 
     useEffect(() => {
         let res = 0;
@@ -113,7 +118,7 @@ const PrimeNumbers = (props) => {
     const handleSubmitNewHighScore = async (e) => {
         e.preventDefault()
         // API post
-        await newScoreAxios().post('https://js-arcade.herokuapp.com/api/reaction-speed', { name: userName, score: lastGameScore })
+        await newScoreAxios().post('api/prime-numbers', { name: userName, score: lastGameScore })
             .then(() => {
                 setUserName('')
                 setNewHighScoreFlag(false)

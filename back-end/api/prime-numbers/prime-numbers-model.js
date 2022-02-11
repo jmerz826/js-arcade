@@ -1,7 +1,7 @@
 const db = require('../data/db-config')
 
 function getAll() {
-    return db('prime-numbers').select('*')
+    return db('prime-numbers').select('*').partitionBy('score', 'desc')
 }
 
 function add(highScore){
