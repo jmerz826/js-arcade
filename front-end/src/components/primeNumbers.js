@@ -9,8 +9,8 @@ const dummyScores = [
   { name: "George", score: 44 },
   { name: "Elaine", score: 33 },
   { name: "Kramer", score: 29 },
-  { name: "Larry", score: 18 },
-  { name: "Newman", score: 2 },
+  { name: "Larry", score: 2 },
+  { name: "Newman", score: 1 },
 ];
 
 const PrimeNumbers = (props) => {
@@ -24,6 +24,8 @@ const PrimeNumbers = (props) => {
     const [lastGameScore, setLastGameScore] = useState(0)
     const [showCorrectMessage, setShowCorrectMessage] = useState(false)
     const [countdown, setCountdown] = useState(0)
+    const [newHighScoreFlag, setNewHighScoreFlag] = useState(false)
+    const [userName, setUserName] = useState('')
     
 
     useEffect(() => {
@@ -49,6 +51,15 @@ const PrimeNumbers = (props) => {
         }
     }, [showCorrectMessage])
 
+    useEffect(() => {
+      if (lastGameScore > 0) {
+        const lowestHighScore = highScores.slice(-1)[0];
+        if (lastGameScore > lowestHighScore.score) {
+          setNewHighScoreFlag(true);
+        }
+      }
+    }, [lastGameScore]);
+
     function setBounds() {
         const randomNumber = Math.floor(Math.random() * 50 + 1)
         const toAdd = roundsCompleted + ((roundsCompleted > 4) ? 2 : 1)
@@ -66,7 +77,12 @@ const PrimeNumbers = (props) => {
     }
 
     const handleChange = (e) => {
-        setUserGuess(e.target.value)
+        if (e.target.name === 'guess') {
+            setUserGuess(e.target.value)
+        }
+        if (e.target.name === 'name') {
+            setUserName(e.target.value)
+        }   
     }
 
     const handleSubmitGuess = (e) => {
@@ -81,6 +97,12 @@ const PrimeNumbers = (props) => {
         }
         setBounds()
         setUserGuess('')
+    }
+
+    const handleSubmitNewHighScore = (e) => {
+        e.preventDefault()
+        // API post
+        setNewHighScoreFlag(false)
     }
     
     const handleStart = () => {
@@ -125,6 +147,17 @@ const PrimeNumbers = (props) => {
                       </form>
                       {showCorrectMessage && <p>correct!</p>}
                   </div>
+              }
+              {newHighScoreFlag && 
+                  <form>
+                      <h4>New High Score!</h4>
+                      <input
+                          name='name'
+                          value={userName}
+                          onChange={handleChange}
+                      />
+                      <button onClick={handleSubmitNewHighScore}>Submit</button>
+                </form>
               }
           </div>
     </StyledDiv>
