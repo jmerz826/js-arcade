@@ -74,11 +74,11 @@ const PrimeNumbers = (props) => {
         if (userGuess === String(correctAnswer)) {
             setRoundsCompleted(roundsCompleted + 1)
             setShowCorrectMessage(true)
-            setBounds()
         } else {
             setLastGameScore(roundsCompleted)
             setGameStarted(false)
         }
+        setBounds()
         setUserGuess('')
     }
     
@@ -92,8 +92,8 @@ const PrimeNumbers = (props) => {
       <h3>How to play</h3>
       <p>
         The Prime Numbers Game will get progressively more challenging as the
-        game goes on. Each round, you will be given an inclusive range of
-        numbers. You must enter how many prime numbers fall within that range (Example. Range: 3-5, answer: 2). You have ten seconds to submit a guess each round.
+        game goes on.<br/> Each round, you will be given an inclusive range of
+        numbers. You must enter how many prime numbers fall within that range (Example. Range: 3-5, answer: 2).<br/> You have ten seconds to submit a guess each round.
         Good luck!
       </p>
       <div className="leaderboard">
@@ -101,7 +101,12 @@ const PrimeNumbers = (props) => {
         <Leaderboard highScores={highScores} />
           </div>
           <div id="prime-numbers-game">
-              {!gameStarted && <button onClick={handleStart}>Start Game</button>}
+              {!gameStarted &&
+                  <div>
+                      <button onClick={handleStart}>Start Game</button>
+                      <h5>Last game's score: {lastGameScore}</h5>
+                  </div>
+              }
               {gameStarted &&
                   <div>
                   <h3>The game has begun!</h3>
@@ -115,7 +120,7 @@ const PrimeNumbers = (props) => {
                           <button onClick={handleSubmitGuess}>Submit guess!</button>
                       </form>
                       {showCorrectMessage && <p>correct!</p>}
-                      </div>
+                  </div>
               }
           </div>
     </StyledDiv>
