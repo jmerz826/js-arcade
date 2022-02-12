@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div``
+const StyledDiv = styled.div`
+
+`
 
 const PrimeNumbersGame = (props) => {
     const {
@@ -21,7 +23,7 @@ const PrimeNumbersGame = (props) => {
         handleSubmitNewHighScore
     } = props;
     return (
-        <div id="prime-numbers-game">
+        <StyledDiv>
               {!gameStarted &&
                   <div>
                       <button onClick={handleStart}>Start Game</button>
@@ -57,7 +59,7 @@ const PrimeNumbersGame = (props) => {
                       <button onClick={handleSubmitNewHighScore}>Submit</button>
                 </form>
               }
-          </div>
+          </StyledDiv>
     )
 }
 

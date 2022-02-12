@@ -7,16 +7,8 @@ import PrimeNumbersGame from "../games/primeNumbers";
 
 const StyledDiv = styled.div``;
 
-const dummyScores = [
-  { name: "Jerry", score: 55 },
-  { name: "George", score: 44 },
-  { name: "Elaine", score: 33 },
-  { name: "Kramer", score: 29 },
-  { name: "Larry", score: 2 },
-  { name: "Newman", score: 1 },
-];
-
 const PrimeNumbers = (props) => {
+  // slices of state
   const [highScores, setHighScores] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   const [lowerBound, setLowerBound] = useState(0);
@@ -41,7 +33,7 @@ const PrimeNumbers = (props) => {
       .catch((err) => console.error(err));
   }, [newHighScoreFlag]); //eslint-disable-line
 
-  useEffect(() => {
+  useEffect(() => { //eslint-disable-line
     let res = 0;
     for (let i = lowerBound; i <= upperBound; i++) {
       isPrime(i) && res++;
@@ -65,7 +57,7 @@ const PrimeNumbers = (props) => {
         issueToken();
       }
     }
-  }, [lastGameScore]);
+  }, [lastGameScore]); //eslint-disable-line
 
   useEffect(() => {
     if (countdown > 0) {
@@ -77,7 +69,7 @@ const PrimeNumbers = (props) => {
       setLastGameScore(roundsCompleted);
       setGameStarted(false);
     }
-  }, [countdown]);
+  }, [countdown]); //eslint-disable-line
 
   function setBounds() {
     const randomNumber = Math.floor(Math.random() * 50 + 1);
@@ -165,23 +157,23 @@ const PrimeNumbers = (props) => {
       <div className="leaderboard">
         <h3>Leaderboard</h3>
         <Leaderboard highScores={highScores} />
-          </div>
-          <PrimeNumbersGame
-          gameStarted = {gameStarted}
-          handleStart = {handleStart}
-          lastGameScore = {lastGameScore}
-          countdown = {countdown}
-          roundsCompleted = {roundsCompleted}
-          lowerBound = {lowerBound}
-          upperBound = {upperBound}
-          userGuess = {userGuess}
-          handleChange = {handleChange}
-          handleSubmitGuess = {handleSubmitGuess}
-          showCorrectMessage = {showCorrectMessage}
-          newHighScoreFlag = {newHighScoreFlag}
-          userName = {userName}
-          handleSubmitNewHighScore = {handleSubmitNewHighScore}
-          />
+      </div>
+      <PrimeNumbersGame
+        gameStarted={gameStarted}
+        handleStart={handleStart}
+        lastGameScore={lastGameScore}
+        countdown={countdown}
+        roundsCompleted={roundsCompleted}
+        lowerBound={lowerBound}
+        upperBound={upperBound}
+        userGuess={userGuess}
+        handleChange={handleChange}
+        handleSubmitGuess={handleSubmitGuess}
+        showCorrectMessage={showCorrectMessage}
+        newHighScoreFlag={newHighScoreFlag}
+        userName={userName}
+        handleSubmitNewHighScore={handleSubmitNewHighScore}
+      />
     </StyledDiv>
   );
 };
