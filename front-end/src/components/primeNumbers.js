@@ -72,6 +72,9 @@ const PrimeNumbers = (props) => {
                 setCountdown(countdown - 1)
             }, 1000);
             return () => clearTimeout(timer)
+        } else {
+            setLastGameScore(roundsCompleted)
+            setGameStarted(false)
         }
     }, [countdown])
 
