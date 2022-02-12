@@ -31,10 +31,8 @@ const PrimeNumbers = (props) => {
     
 
     useEffect(() => {
-        // ******* api call to set high scores from db ******* 
         axios.get('https://js-arcade.herokuapp.com/api/prime-numbers')
             .then(res => {
-                console.log(res.data)
                 const top5 = res.data.slice(0, 5)
                 setHighScores(top5)
                 setBounds()
@@ -67,6 +65,21 @@ const PrimeNumbers = (props) => {
         }
       }
     }, [lastGameScore]);
+
+    useEffect(() => {
+        if (countdown > 0) {
+            const timer = setTimeout(() => {
+                setCountdown(countdown - 1)
+            }, 1000);
+            return () => clearTimeout(timer)
+        }
+    }, [countdown])
+
+    // const tick = () => {
+    //     setTimeout(() => {
+    //         setCountdown(countdown - 1)
+    //     }, 1000)
+    // }
 
     function setBounds() {
         const randomNumber = Math.floor(Math.random() * 50 + 1)
@@ -106,13 +119,14 @@ const PrimeNumbers = (props) => {
 
     const handleSubmitGuess = (e) => {
         e.preventDefault()
-        /* add timeout state flag checker here*/
         if (userGuess === String(correctAnswer)) {
             setRoundsCompleted(roundsCompleted + 1)
             setShowCorrectMessage(true)
+            setCountdown(10)
         } else {
             setLastGameScore(roundsCompleted)
             setGameStarted(false)
+            setCountdown(0)
         }
         setBounds()
         setUserGuess('')
@@ -132,6 +146,7 @@ const PrimeNumbers = (props) => {
     const handleStart = () => {
         setLastGameScore(0)
         setRoundsCompleted(0)
+        setCountdown(10)
         setGameStarted(true)
     }
   return (
