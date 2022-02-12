@@ -71,7 +71,7 @@ const PrimeNumbers = (props) => {
     function setBounds() {
         const randomNumber = Math.floor(Math.random() * 50 + 1)
         if (randomNumber === lowerBound) {
-            setBounds()
+            return setBounds()
         }
         const toAdd = roundsCompleted + ((roundsCompleted > 4) ? 2 : 1)
         setLowerBound(randomNumber)
