@@ -1,9 +1,7 @@
 import styled from "styled-components";
+import linkedinPhoto from '../images/linkedinPhoto.jpg'
 
 const StyledHomePage = styled.div`
-  img {
-    width: 40%;
-  }
   a {
     text-decoration: none;
   }
@@ -34,6 +32,11 @@ const StyledHomePage = styled.div`
     align-items: center;
     padding: 4%;
     height: 100vh;
+
+    img {
+      width: 8%;
+      border-radius: 9999px;
+    }
 
     p {
       margin: 0 10%;
@@ -86,6 +89,7 @@ const HomePage = (props) => {
             This project's github 🔗
           </a>
           <h2>Creator</h2>
+          <img src={linkedinPhoto} alt="John's headshot"/>
           <p>This page was created solely by John Merz</p>
           <ul>
             <li>
