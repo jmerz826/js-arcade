@@ -38,7 +38,7 @@ const Header = (props) => {
                 <Link to='/'>Home</Link>
                 <Link to='/reaction-speed'>Reaction Speed</Link>
                 <Link to='/prime-numbers'>Prime Numbers</Link>
-                <Link to='#'>Leaderboards</Link>
+                <Link to='/leaderboards'>Leaderboards</Link>
                 <Link to='#'>Contact</Link>
             </nav>
         </StyledHeader>
