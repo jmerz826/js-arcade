@@ -32,19 +32,23 @@ const StyledHomePage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5%;
+    padding: 4%;
     height: 100vh;
   }
 
   #title {
+    background-color: #0f0a1e;
+    color: white;
+    padding: 2%;
+    border: 2px solid black;
+    border-radius: 36px;
     h1 {
-      font-family: "Press Start 2P", cursive;
       text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe,
         4px 0 0 #4405fc;
+      animation: blink 1s steps(4, start) infinite;
     }
-    animation: blink 1s steps(4, start) infinite;
     @keyframes blink {
-      to{
+      to {
         visibility: hidden;
       }
     }

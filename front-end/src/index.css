@@ -76,6 +76,11 @@ h5{
 	font-size: 1.25rem;
 }
 
+h2, h3, h4, h5{
+	margin-top: 2%;
+	margin-bottom: 0.5%;
+}
+
 p, a{
 	font-size: 1rem;
 	font-family: 'Permanent Marker', cursive;
@@ -83,7 +88,7 @@ p, a{
 }
 
 h1, h2, h3, h4, h5{
-	font-family: 'Teko', sans-serif;
+	font-family: "Press Start 2P", cursive;
 	text-transform: uppercase;
 }
 
