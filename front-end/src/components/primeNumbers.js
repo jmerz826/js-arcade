@@ -11,6 +11,10 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  p{
+    margin: 0 20%;
+  }
 `;
 
 const PrimeNumbers = (props) => {

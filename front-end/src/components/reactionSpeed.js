@@ -7,13 +7,14 @@ import { newScoreAxios } from "../auth/axiosWithAuth";
 
 const StyledDiv = styled.div`
 background-color: #ba81b5;
+height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   
   p{
-    margin: 0 10%;
+    margin: 0 20%;
   }
 `;
 // const dummyScores = [

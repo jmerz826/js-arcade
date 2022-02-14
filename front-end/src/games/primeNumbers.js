@@ -2,8 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-
-`
+  height: 100vh;
+  .game-btn {
+    display: inline-block;
+    font-size: 1.25rem;
+    padding: 2%;
+  }
+  input {
+    font-size: 1.25rem;
+    padding: 2%;
+  }
+`;
 
 const PrimeNumbersGame = (props) => {
     const {
@@ -43,7 +52,7 @@ const PrimeNumbersGame = (props) => {
                               onChange={handleChange}
                               autoComplete='off'
                           />
-                          <button onClick={handleSubmitGuess}>Submit guess!</button>
+                          <button onClick={handleSubmitGuess} className="game-btn">Submit guess!</button>
                       </form>
                       {showCorrectMessage && <p>correct!</p>}
                   </div>

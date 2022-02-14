@@ -105,8 +105,13 @@ h1, h2, h3, h4, h5, li, .start-btn{
 	padding: 10%;
 	width: max-content;
 	box-shadow: 5px 5px 10px black;
-	margin: 4% auto;
+	margin: 10% auto;
 	border-radius: 9999px;
+}
+
+.start-btn:hover{
+	transform: scale(1.1);
+	cursor: pointer;
 }
 
 @keyframes glowing {
@@ -131,9 +136,9 @@ h1, h2, h3, h4, h5, li, .start-btn{
 	border: none;
 	border-radius: 9999px;
 	margin: 2%;
-	text-transform: uppercase;
-	
-	animation: glowing 1000ms infinite;
-
-	
+	text-transform: uppercase;	
+	animation: glowing 1000ms infinite;	
+}
+.game-btn:hover{
+	cursor: pointer;
 }
