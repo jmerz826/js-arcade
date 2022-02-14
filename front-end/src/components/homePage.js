@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import linkedinPhoto from '../images/linkedinPhoto.jpg'
+import linkedinPhoto from '../images/linkedinPhoto.jpg';
 
 const StyledHomePage = styled.div`
   a {
     text-decoration: none;
+    color: blue;
   }
 
   .bg-wrapper {
@@ -36,6 +37,9 @@ const StyledHomePage = styled.div`
     img {
       width: 8%;
       border-radius: 9999px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 8px black;
+      margin: 0.5%;
     }
 
     p {
