@@ -7,6 +7,8 @@ const StyledDiv = styled.div`
   border: 6px double white;
   width: 40%;
   padding: 1% 0;
+  margin-top: 4px;
+  border-radius: 48px;
 `;
 
 const Leaderboard = (props) => {

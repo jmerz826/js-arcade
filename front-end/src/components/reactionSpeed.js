@@ -11,9 +11,10 @@ background-color: #ba81b5;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* img {
-    width: 25%;
-  } */
+  
+  p{
+    margin: 0 10%;
+  }
 `;
 // const dummyScores = [
 //   { name: "Jerry", score: 123456 },

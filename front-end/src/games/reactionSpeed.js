@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div``;
+const StyledDiv = styled.div`
+`;
 
 const ReactionSpeedGame = (props) => {
   const { totalTime, setTotalTime } = props;
@@ -43,8 +44,8 @@ const ReactionSpeedGame = (props) => {
   return (
     <StyledDiv>
       <h4>The game has begun!</h4>
-      {shown && <button onClick={handleClick}>Click here!</button>}
-      <h5>be quick! 🐆</h5>
+      {shown && <button onClick={handleClick} className='game-btn'>Click here!</button>}
+      <h5>be quick!</h5>
     </StyledDiv>
   );
 };

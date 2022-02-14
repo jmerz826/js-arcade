@@ -39,8 +39,7 @@ const PrimeNumbers = (props) => {
       .catch((err) => console.error(err));
   }, [newHighScoreFlag]); //eslint-disable-line
 
-  useEffect(() => {
-    //eslint-disable-line
+  useEffect(() => { //eslint-disable-line
     let res = 0;
     for (let i = lowerBound; i <= upperBound; i++) {
       isPrime(i) && res++;
