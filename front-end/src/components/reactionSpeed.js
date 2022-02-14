@@ -109,10 +109,6 @@ const ReactionSpeed = (props) => {
   return (
     <StyledDiv>
       <h2>Reaction Speed Game</h2>
-      {/* <img
-        src="https://cdn.pixabay.com/photo/2021/02/04/15/35/track-and-field-5981702_960_720.jpg"
-        alt="runner lined up at starting line"
-      /> */}
       <Leaderboard highScores={highScores} />
       <h3>How to play</h3>
       <p>

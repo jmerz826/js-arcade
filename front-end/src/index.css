@@ -109,9 +109,31 @@ h1, h2, h3, h4, h5, li, .start-btn{
 	border-radius: 9999px;
 }
 
+@keyframes glowing {
+	0% {
+		background-color: #fffa8f;
+		box-shadow: 0 0 5px #fffa8f;
+	  }
+	  50% {
+		background-color: #fffcc4;
+		box-shadow: 0 0 20px #fffcc4;
+	  }
+	  100% {
+		background-color: white;
+		box-shadow: 0 0 5px white;
+	  }
+}
 .game-btn{
-	background-color: #fffa8f;
+	/* background-color: #fffcc4; */
 	font-size: 1.563rem;
 	font-family: "Press Start 2P", cursive;
 	padding: 10%;
+	border: none;
+	border-radius: 9999px;
+	margin: 2%;
+	text-transform: uppercase;
+	
+	animation: glowing 1000ms infinite;
+
+	
 }
