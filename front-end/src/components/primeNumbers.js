@@ -5,7 +5,13 @@ import axios from "axios";
 import { newScoreAxios } from "../auth/axiosWithAuth";
 import PrimeNumbersGame from "../games/primeNumbers";
 
-const StyledDiv = styled.div``;
+const StyledDiv = styled.div`
+  background-color: #86ccbf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
 
 const PrimeNumbers = (props) => {
   // slices of state
@@ -33,7 +39,8 @@ const PrimeNumbers = (props) => {
       .catch((err) => console.error(err));
   }, [newHighScoreFlag]); //eslint-disable-line
 
-  useEffect(() => { //eslint-disable-line
+  useEffect(() => {
+    //eslint-disable-line
     let res = 0;
     for (let i = lowerBound; i <= upperBound; i++) {
       isPrime(i) && res++;
@@ -145,19 +152,17 @@ const PrimeNumbers = (props) => {
   return (
     <StyledDiv>
       <h2>Prime Numbers Game</h2>
+      <Leaderboard highScores={highScores} />
       <h3>How to play</h3>
       <p>
         The Prime Numbers Game will get progressively more challenging as the
         game goes on.
-        <br /> Each round, you will be given an inclusive range of numbers. You
+        <br /> Each round, you will be given an <span style={{textDecoration: 'underline'}}>inclusive</span> range of numbers. You
         must enter how many prime numbers fall within that range (Example.
         Range: 3-5, answer: 2).
         <br /> You have ten seconds to submit a guess each round. Good luck!
       </p>
-      <div className="leaderboard">
-        <h3>Leaderboard</h3>
-        <Leaderboard highScores={highScores} />
-      </div>
+      <div className="leaderboard"></div>
       <PrimeNumbersGame
         gameStarted={gameStarted}
         handleStart={handleStart}
