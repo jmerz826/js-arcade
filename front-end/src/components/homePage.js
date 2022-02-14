@@ -8,12 +8,12 @@ const StyledHomePage = styled.div`
     text-decoration: none;
   }
 
-  .bg-wrapper{
-    position:relative;
+  .bg-wrapper {
+    position: relative;
   }
 
-  .bg-wrapper:before{
-    content: ' ';
+  .bg-wrapper:before {
+    content: " ";
     display: block;
     position: absolute;
     left: 0;
@@ -27,13 +27,27 @@ const StyledHomePage = styled.div`
     background-size: cover;
   }
 
-  .content{
-    position:relative;
+  .content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:5%;
-    height:100vh;
+    padding: 5%;
+    height: 100vh;
+  }
+
+  #title {
+    h1 {
+      font-family: "Press Start 2P", cursive;
+      text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe,
+        4px 0 0 #4405fc;
+    }
+    animation: blink 1s steps(4, start) infinite;
+    @keyframes blink {
+      to{
+        visibility: hidden;
+      }
+    }
   }
 `;
 
@@ -42,7 +56,9 @@ const HomePage = (props) => {
     <StyledHomePage>
       <div className="bg-wrapper">
         <div className="content">
-          <h1>Welcome</h1>
+          <div id="title">
+            <h1>John's JavaScript Arcade</h1>
+          </div>
           <h2>About</h2>
           <p>
             You have entered John's JavaScript arcade! Have fun playing around
