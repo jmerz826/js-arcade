@@ -51,6 +51,11 @@ table {
 
 /* default font sizing, utilizing https://type-scale.com/ */
 
+html{
+	font-size: 100%;
+	text-align: center;
+}
+
 h1{
 	font-size: 3.052rem;
 }
@@ -71,7 +76,7 @@ h5{
 	font-size: 1.25rem;
 }
 
-p{
+p, a{
 	font-size: 1rem;
 }
 
