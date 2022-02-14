@@ -34,6 +34,10 @@ const StyledHomePage = styled.div`
     align-items: center;
     padding: 4%;
     height: 100vh;
+
+    p {
+      margin: 0 10%;
+    }
   }
 
   #title {
@@ -69,8 +73,10 @@ const HomePage = (props) => {
             with the games I have created utilizing the knowledge I've acquired
             from my Full Stack bootcamp. Games can be found in the navigation
             bar at the top of the page. <br />
-            All games have a leader board that is running on a backend server
-            that I created for this project.
+            All games have a functioning leaderboard that is running on a
+            backend server that I created for this project.
+            <br />
+            Have fun, and try to make a new high score!
           </p>
           <a
             href="https://github.com/jmerz826/js-arcade"
