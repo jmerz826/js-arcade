@@ -59,7 +59,7 @@ const HomePage = (props) => {
           >
             This project's github 🔗
           </a>
-          <h3>Creator</h3>
+          <h2>Creator</h2>
           <p>This page was created solely by John Merz</p>
           <ul>
             <li>
