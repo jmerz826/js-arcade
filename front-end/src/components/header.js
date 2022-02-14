@@ -6,6 +6,7 @@ const StyledHeader = styled.header`
     background-color: #fffa8f;
     a{
         background-color: #ff7979;
+        font-family: "Press Start 2P", cursive;
         text-decoration: none;
         color: black;
         padding: 1%;
@@ -18,7 +19,7 @@ const StyledHeader = styled.header`
             transform: scale(1.1);
         }
         :active{
-            border: 2px dashed black;
+            border: 2px solid white;
         }
     }
     nav{
