@@ -16,11 +16,14 @@ const StyledDiv = styled.div`
     width: 20%;
     border-radius: 9999px;
     border: 6px solid black;
-    margin: 1% 0;
+    margin-top: 1%;
   }
   a {
     text-decoration: none;
     color: #fffa8f;
+  }
+  ul{
+    margin-top: 2%;
   }
 `;
 
@@ -29,6 +32,7 @@ const ContactPage = (props) => {
     <StyledDiv>
       <h2>Meet: John Merz</h2>
       <img src={linkedinPhoto} alt="headshot of John" />
+      <h3>Full Stack Developer</h3>
       <ul>
         <li>
           <a
