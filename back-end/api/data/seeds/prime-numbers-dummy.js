@@ -4,11 +4,11 @@
  */
 
  const leaderboard = [
-  { name: "Namath", score: 12 },
-  { name: "Revis", score: 10 },
-  { name: "Darnold", score: 9 },
-  { name: "Cromartie", score: 5 },
-  { name: "Mangold", score: 2 },
+  { name: "Jerry", score: 12 },
+  { name: "George", score: 10 },
+  { name: "Elaine", score: 9 },
+  { name: "Kramer", score: 5 },
+  { name: "Larry", score: 2 },
 ]
 
 exports.seed = async function (knex) {
