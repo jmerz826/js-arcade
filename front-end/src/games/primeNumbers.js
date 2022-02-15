@@ -35,8 +35,8 @@ const PrimeNumbersGame = (props) => {
         <StyledDiv>
               {!gameStarted &&
                   <div>
-                      <button className="start-btn" onClick={handleStart}>Start Game</button>
                       <h5>Last game's score: {lastGameScore}</h5>
+                      <button className="start-btn" onClick={handleStart}>Start Game</button>
                   </div>
               }
               {gameStarted &&

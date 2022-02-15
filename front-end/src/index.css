@@ -99,14 +99,12 @@ h1, h2, h3, h4, h5, li, .start-btn{
 
 .start-btn{
 	background-color: #f05050;
-	display: inline-block;
 	font-size: 1.563rem;
 	color: #fffa8f;
-	padding: 10%;
-	width: max-content;
+	padding: 5%;
 	box-shadow: 5px 5px 10px black;
-	margin: 10% auto;
 	border-radius: 9999px;
+	margin-top: 8px;
 }
 
 .start-btn:hover{

@@ -143,7 +143,11 @@ const PrimeNumbers = (props) => {
         setUserName("");
         setNewHighScoreFlag(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err)
+        alert('token expired')
+        setNewHighScoreFlag(false)
+      });
   };
 
   const handleStart = () => {

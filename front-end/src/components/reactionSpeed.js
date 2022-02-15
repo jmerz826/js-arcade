@@ -6,8 +6,8 @@ import axios from "axios";
 import { newScoreAxios } from "../auth/axiosWithAuth";
 
 const StyledDiv = styled.div`
-background-color: #ba81b5;
-height: 100vh;
+  background-color: #ba81b5;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,15 +16,11 @@ height: 100vh;
   p{
     margin: 0 20%;
   }
+
+  .start-btn{
+    padding: 1.314%;
+  }
 `;
-// const dummyScores = [
-//   { name: "Jerry", score: 123456 },
-//   { name: "George", score: 654321 },
-//   { name: "Elaine", score: 987654 },
-//   { name: "Kramer", score: 9876543 },
-//   { name: "Larry", score: 9999999 },
-//   { name: "Newman", score: 99999999999995 },
-// ];
 
 const ReactionSpeed = (props) => {
   // slices of state
@@ -100,7 +96,11 @@ const ReactionSpeed = (props) => {
         setScore(0);
         setNewHighScore(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        alert('token has timed out')
+        setNewHighScore(false)
+        console.error(err)
+      });
   };
 
   const handleChange = (e) => {
@@ -128,12 +128,12 @@ const ReactionSpeed = (props) => {
           </form>
         )}
       </div>
-      <div id="reaction-speed-game">
         {!gameStarted && (
           <button className="start-btn" onClick={handleStart}>
             Start Game
-          </button>
+            </button>
         )}
+      <div id="reaction-speed-game">
         {gameStarted && (
           <ReactionSpeedGame
             gameStarted={gameStarted}
