@@ -128,6 +128,7 @@ const ReactionSpeed = (props) => {
           </form>
         )}
       </div>
+      {(score !== 0) && <h5>Last game's score: {score}</h5>}
         {!gameStarted && (
           <button className="start-btn" onClick={handleStart}>
             Start Game
