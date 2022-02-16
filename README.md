@@ -4,6 +4,20 @@
 Hop into the JavaScript Arcade! All games are original, and created by yours truly.  If your score for a particular game beats any of the current top 5 scores, you get to put your name on the board!
 
 ## The Games
+### Reaction Speed Game
+
+#### How to Play
+- As it sounds, the Reaction Speed Game will test your reaction speed
+- Upon starting the game, each round will consist of a button appearing shortly; you must click this button as quickly as possible
+- The game consists of 5 rounds.
+
+### Prime Numbers Game
+#### How to Play
+- The Prime Numbers Game will get progressively more challenging as the game goes on.
+- Each round, you will be given an **inclusive** range of numbers
+- You must enter how many prime numbers fall within the displayed range (Example. Range: 3-5, answer: 2).
+- You have ten seconds to submit a guess each round
+
 
 ## Technicals
 ### Frontend
