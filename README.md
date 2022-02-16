@@ -6,7 +6,7 @@ Hop into the JavaScript Arcade! All games are original, and created by yours tru
 ## The Games
 ### Reaction Speed Game
 
-<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/reactionSpeedGameScreenshot.JPG?raw=true" alt="Reaction Speed Game screenshot"/>
+<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/reactionSpeedGameScreenshot.JPG?raw=true" alt="Reaction Speed Game screenshot" width="60%"/>
 
 #### How to Play
 - As it sounds, the Reaction Speed Game will test your reaction speed
