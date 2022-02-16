@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Reaction = require('./reaction-speed-model');
-const {restricted} = require('../auth/restricted')
+const { restricted } = require('../auth/restricted')
+const {profanityFilter} = require('../middleware/profanityFilter')
 
 router.get('/', (req, res, next) => {
     Reaction.getAll()
@@ -10,8 +11,8 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err));
 });
 
-router.post('/', restricted, (req, res, next) => {
-    Reaction.add(req.body)
+router.post('/', restricted, profanityFilter, (req, res, next) => {
+    Reaction.add(req.user)
         .then(newScore => {
             res.status(201).json(newScore)
         })

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const PrimeNumbers = require('./prime-numbers-model')
-const {restricted} = require('../auth/restricted')
+const { restricted } = require('../auth/restricted')
+const {profanityFilter} = require('../middleware/profanityFilter')
 
 router.get('/', (req, res, next) => {
     PrimeNumbers.getAll()
@@ -10,8 +11,8 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/', restricted, (req, res, next) => {
-    PrimeNumbers.add(req.body)
+router.post('/', restricted, profanityFilter, (req, res, next) => {
+    PrimeNumbers.add(req.user)
         .then(newEntry => {
             res.status(201).json(newEntry)
         })
