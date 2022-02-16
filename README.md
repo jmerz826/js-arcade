@@ -14,6 +14,7 @@ Hop into the JavaScript Arcade! All games are original, and created by yours tru
 - As it sounds, the Reaction Speed Game will test your reaction speed
 - Upon starting the game, each round will consist of a button appearing shortly; you must click this button as quickly as possible
 - The game consists of 5 rounds.
+- Remember, lower scores are better!
 
 ### Prime Numbers Game
 
