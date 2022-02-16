@@ -15,7 +15,7 @@ Hop into the JavaScript Arcade! All games are original, and created by yours tru
 
 ### Prime Numbers Game
 
-<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/primeNumbersGameScreenshot.JPG?raw=true" alt="Prime Numbers Game screenshot" />
+<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/primeNumbersGameScreenshot.JPG?raw=true" alt="Prime Numbers Game screenshot" width="60%"/>
 
 #### How to Play
 - The Prime Numbers Game will get progressively more challenging as the game goes on.
