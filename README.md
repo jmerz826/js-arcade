@@ -1,7 +1,9 @@
 # John's JavaScript Arcade
 
-## About
+## Overview
 Hop into the JavaScript Arcade! All games are original, and created by yours truly.  If your score for a particular game beats any of the current top 5 scores, you get to put your name on the board!
+
+## The Games
 
 ## Technicals
 ### Frontend
