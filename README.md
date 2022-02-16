@@ -6,12 +6,17 @@ Hop into the JavaScript Arcade! All games are original, and created by yours tru
 ## The Games
 ### Reaction Speed Game
 
+<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/reactionSpeedGameScreenshot.JPG?raw=true" alt="Reaction Speed Game screenshot"/>
+
 #### How to Play
 - As it sounds, the Reaction Speed Game will test your reaction speed
 - Upon starting the game, each round will consist of a button appearing shortly; you must click this button as quickly as possible
 - The game consists of 5 rounds.
 
 ### Prime Numbers Game
+
+<img src="https://github.com/jmerz826/js-arcade/blob/main/front-end/src/images/primeNumbersGameScreenshot.JPG?raw=true" alt="Prime Numbers Game screenshot" />
+
 #### How to Play
 - The Prime Numbers Game will get progressively more challenging as the game goes on.
 - Each round, you will be given an **inclusive** range of numbers
