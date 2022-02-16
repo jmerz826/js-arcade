@@ -12,12 +12,12 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  
-  p{
+
+  p {
     margin: 0 20%;
   }
 
-  .start-btn{
+  .start-btn {
     padding: 1.314%;
   }
 `;
@@ -97,9 +97,9 @@ const ReactionSpeed = (props) => {
         setNewHighScore(false);
       })
       .catch((err) => {
-        alert('token has timed out')
-        setNewHighScore(false)
-        console.error(err)
+        alert("token has timed out");
+        setNewHighScore(false);
+        console.error(err);
       });
   };
 
@@ -114,10 +114,15 @@ const ReactionSpeed = (props) => {
       <h3>How to play</h3>
       <p>
         As it sounds, the Reaction Speed Game will test your{" "}
-        <span style={{ fontStyle: "italic", textDecoration: 'underline' }}>reaction speed</span>. <br />
+        <span style={{ fontStyle: "italic", textDecoration: "underline" }}>
+          reaction speed
+        </span>
+        . <br />
         Upon starting the game, each round will consist of a button appearing
         shortly; you must click this button as quickly as possible. The game
-        consists of 5 rounds. Good luck!
+        consists of 5 rounds.
+        <br />
+        Remember, lower scores are better. Good luck!
       </p>
       <div className="leaderboard">
         {newHighScore && (
@@ -128,12 +133,12 @@ const ReactionSpeed = (props) => {
           </form>
         )}
       </div>
-      {(score !== 0) && <h5>Last game's score: {score}</h5>}
-        {!gameStarted && (
-          <button className="start-btn" onClick={handleStart}>
-            Start Game
-            </button>
-        )}
+      {score !== 0 && <h5>Last game's score: {score}</h5>}
+      {!gameStarted && (
+        <button className="start-btn" onClick={handleStart}>
+          Start Game
+        </button>
+      )}
       <div id="reaction-speed-game">
         {gameStarted && (
           <ReactionSpeedGame
