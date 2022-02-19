@@ -1,5 +1,7 @@
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import linkedinPhoto from '../images/linkedinPhoto.jpg';
+import linkedinPhoto from "../images/linkedinPhoto.jpg";
+import axios from "axios";
 
 const StyledHomePage = styled.div`
   a {
@@ -67,6 +69,12 @@ const StyledHomePage = styled.div`
 `;
 
 const HomePage = (props) => {
+  useEffect(() => {
+    // wake heroku server on mount
+    axios
+      .get("https://js-arcade.herokuapp.com/")
+      .then((res) => console.log(res.data.message));
+  }, []);
   return (
     <StyledHomePage>
       <div className="bg-wrapper">
@@ -93,7 +101,7 @@ const HomePage = (props) => {
             This project's github 🔗
           </a>
           <h2>Creator</h2>
-          <img src={linkedinPhoto} alt="John's headshot"/>
+          <img src={linkedinPhoto} alt="John's headshot" />
           <p>This site was created solely by John Merz</p>
           <ul>
             <li>

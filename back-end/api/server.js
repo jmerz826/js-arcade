@@ -16,7 +16,7 @@ server.use('/api/auth', authRouter)
 server.use('/api/prime-numbers', primeNumRouter)
 
 server.get('/', (req, res) => {
-  res.json({ message: 'hello'})
+  res.json({ message: 'hello, welcome to my arcade'})
 })
 
 // error catcher
