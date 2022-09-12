@@ -102,7 +102,12 @@ const HomePage = (props) => {
           </a>
           <h2>Creator</h2>
           <img src={linkedinPhoto} alt="John's headshot" />
-          <p>This site was created solely by John Merz</p>
+          <p>
+            This site was created solely by{" "}
+            <a href="http://johnmerz.com" target="_blank" rel="noreferrer">
+              John Merz
+            </a>
+          </p>
           <ul>
             <li>
               <a

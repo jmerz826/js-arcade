@@ -22,15 +22,24 @@ const StyledDiv = styled.div`
     text-decoration: none;
     color: #fffa8f;
   }
-  ul{
+  ul {
     margin-top: 2%;
+  }
+  h2 a{
+    font-size: inherit;
+    font-family: inherit;
   }
 `;
 
 const ContactPage = (props) => {
   return (
     <StyledDiv>
-      <h2>Meet: John Merz</h2>
+      <h2>
+        Meet:{" "}
+        <a href="http://johnmerz.com" target="_blank" rel="noreferrer">
+          John Merz
+        </a>
+      </h2>
       <img src={linkedinPhoto} alt="headshot of John" />
       <h3>Full Stack Developer</h3>
       <ul>
@@ -53,11 +62,7 @@ const ContactPage = (props) => {
           </a>
         </li>
         <li>
-          <a
-            href="mailto:jmerz826@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="mailto:jmerz826@gmail.com" target="_blank" rel="noreferrer">
             Email: jmerz826@gmail.com 📧
           </a>
         </li>
